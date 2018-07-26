@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 ###############################################################################################################
 
-def plot_density(ax, y_true, y_pred, title, th=0.5, target_names = ['Genuine', 'Fraud']):
+def plot_density(ax, y_true, y_pred, title, th=0.5, target_names = ['Class0', 'Class1']):
     """
     This function plots the density curve of a classifier.
     
@@ -28,7 +28,7 @@ def plot_density(ax, y_true, y_pred, title, th=0.5, target_names = ['Genuine', '
     th : float in (0., 1),  optional (default=0.5)
          Probability threshold for assigning observations to a given class. 
     
-    target_names : list, optional (default=['Genuine', 'Fraud'])
+    target_names : list, optional (default=['Class0', 'Class1'])
                    List defining the lables of classes to predict.
     
     
