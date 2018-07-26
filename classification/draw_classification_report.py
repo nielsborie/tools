@@ -15,7 +15,7 @@ from .precision_recall import plot_precision_recall
 ##########################              Generate Classification report               ##########################  
 
 ###############################################################################################################
-def get_classification_report(ytrain,y_train_pred,ytest,y_test_pred,threshold,target_names = ['Genuine', 'Fraud']):
+def get_classification_report(ytrain,y_train_pred,ytest,y_test_pred,threshold,target_names = ['Class0', 'Class1']):
     
     # --- Find prediction applying threshold
     pred_train = pd.Series(y_train_pred).apply(lambda x: 1 if x > threshold else 0)
@@ -49,8 +49,8 @@ def get_classification_report(ytrain,y_train_pred,ytest,y_test_pred,threshold,ta
     # --- Get classification report on train & test set
     print("----------------------------------------------")
     print()
-    print("|  ** Train  **   |  Accuracy : {0:.6f}   |   AUC : {0:.6f}   |  AUPRC :  {0:.6f}   |".format(accuracy_score(ytrain, pred_train),roc_auc_score(ytrain, pred_train),average_precision_score(ytrain, pred_train)))
-    print("|  ** Test   **   |  Accuracy : {0:.6f}   |   AUC : {0:.6f}   |  AUPRC :  {0:.6f}   |".format(accuracy_score(ytest, pred_test),roc_auc_score(ytest, pred_test),average_precision_score(ytest, pred_test)))
+    print("|  ** Train  **   |  Accuracy : {0:.6f}   |   AUC : {1:.6f}   |  AUPRC :  {2:.6f}   |".format(accuracy_score(ytrain, pred_train),roc_auc_score(ytrain, y_train_pred),average_precision_score(ytrain, y_train_pred)))
+    print("|  ** Test   **   |  Accuracy : {0:.6f}   |   AUC : {1:.6f}   |  AUPRC :  {2:.6f}   |".format(accuracy_score(ytest, pred_test),roc_auc_score(ytest, y_test_pred),average_precision_score(ytest, y_test_pred)))
     print()
     print("----------------------------------------------")
     print()
@@ -61,3 +61,4 @@ def get_classification_report(ytrain,y_train_pred,ytest,y_test_pred,threshold,ta
     print()
     print("----------------------------------------------")
     print()
+
