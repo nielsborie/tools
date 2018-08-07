@@ -1,7 +1,7 @@
 from sklearn.base import BaseEstimator,TransformerMixin,ClassifierMixin
 from sklearn.cross_validation import StratifiedKFold
 
-class Ensemble_stack(object):
+class Ensemble(object):
     def __init__(self, n_folds, stacker, base_models):
         self.n_folds = n_folds
         self.stacker = stacker
